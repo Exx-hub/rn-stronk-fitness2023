@@ -25,6 +25,6 @@
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
-    "scheme": "rn-stronk-fitness2023"
+    "scheme": "rn"
   }
 }
