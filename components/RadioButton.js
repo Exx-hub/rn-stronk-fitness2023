@@ -25,6 +25,7 @@ export default RadioButton;
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
+    marginTop: 10,
   },
   optionContainer: {
     flexDirection: "row",
@@ -32,21 +33,23 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   radioCircle: {
-    height: 15,
-    width: 15,
+    height: 12,
+    width: 12,
     borderRadius: 12,
-    borderWidth: 2,
+    borderWidth: 1,
+    borderColor: "lightgray",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "white",
   },
   selected: {
-    height: 6,
-    width: 6,
+    height: 4,
+    width: 4,
     borderRadius: 6,
     backgroundColor: "black",
   },
   label: {
     marginLeft: 5,
+    fontSize: 13,
   },
 });

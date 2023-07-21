@@ -19,7 +19,7 @@ const Home = () => {
   const screenwWidth = Dimensions.get("screen").width;
   const { height, width } = useWindowDimensions();
 
-  console.log({ platForm: Platform.OS, windowWidth, screenwWidth, height, width });
+  // console.log({ platForm: Platform.OS, windowWidth, screenwWidth, height, width });
 
   return (
     <View style={styles.homeContainer}>
