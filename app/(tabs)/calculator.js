@@ -4,7 +4,7 @@ import React from "react";
 const Calculator = () => {
   return (
     <View>
-      <Text>Calculator</Text>
+      <Text style={{ fontFamily: "Marker" }}>Calculator</Text>
     </View>
   );
 };

@@ -1,6 +1,4 @@
 import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
-import React from "react";
-import { LinearGradient } from "expo-linear-gradient";
 
 const WhiteBoard = () => {
   const exercises = [
@@ -11,6 +9,7 @@ const WhiteBoard = () => {
     "Pec Dec",
     "Tricep Dips",
   ];
+
   return (
     <View style={styles.modalContainer}>
       <ImageBackground
@@ -65,13 +64,16 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: "bold",
+    fontFamily: "Marker",
   },
   author: {
     fontSize: 12,
     color: "gray",
     marginBottom: 3,
+    fontFamily: "Marker",
   },
   exercise: {
-    textTransform: "uppercase",
+    fontSize: 14,
+    fontFamily: "Marker",
   },
 });

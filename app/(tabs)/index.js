@@ -32,7 +32,7 @@ const Home = () => {
 
         <View style={styles.logoContainer}>
           <Image style={styles.whiteLogo} source={require("../../assets/logos/whitelogo.png")} />
-          <LinearGradient colors={["#414141", "#414141", "darkgray"]} style={styles.button}>
+          <LinearGradient colors={["#171717", "#2c2c2c", "#363636"]} style={styles.button}>
             <Pressable onPress={() => router.push("calculator")}>
               <Text style={styles.getStarted}>Get Started</Text>
             </Pressable>
@@ -81,6 +81,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
     paddingVertical: 3,
     borderRadius: 3,
+    borderWidth: 1,
+    borderColor: "#2c2c2c",
   },
   getStarted: {
     color: "lightgray",
@@ -97,5 +99,6 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     fontSize: 13,
     marginBottom: 3,
+    fontFamily: "Marker",
   },
 });
