@@ -4,7 +4,7 @@ export default LogoTitle = () => {
   return (
     <View style={styles.container}>
       <Image source={require("../assets/logos/stronkblack.png")} style={styles.image} />
-      <Text style={styles.title}>STRONK</Text>
+      <Text style={styles.title}>STRONK FITNESS</Text>
     </View>
   );
 };
