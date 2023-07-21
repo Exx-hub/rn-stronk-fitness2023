@@ -1,10 +1,26 @@
-import { View, Text, StyleSheet, ImageBackground, Image, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  Image,
+  Pressable,
+  Dimensions,
+  useWindowDimensions,
+} from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
+import { Platform } from "react-native";
 
 const Home = () => {
   const router = useRouter();
+  const windowWidth = Dimensions.get("window").width;
+  const screenwWidth = Dimensions.get("screen").width;
+  const { height, width } = useWindowDimensions();
+
+  console.log({ platForm: Platform.OS, windowWidth, screenwWidth, height, width });
+
   return (
     <View style={styles.homeContainer}>
       <ImageBackground
