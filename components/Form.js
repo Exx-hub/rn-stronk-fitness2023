@@ -17,6 +17,10 @@ const Form = ({
   handleSelect,
   weightLoss,
   handleWeightLoss,
+  calculateBMI,
+  bmi,
+  category,
+  categoryColor,
 }) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(1.2);
@@ -28,7 +32,6 @@ const Form = ({
     { label: "Extra Active: athlete or extremely physical job", value: 1.9 },
   ]);
 
-  console.log({ value });
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Calculate {active === "bmi" ? "BMI" : "Calories"}</Text>
@@ -87,7 +90,7 @@ const Form = ({
             onSelect={handleSelect}
           />
 
-          <Pressable style={styles.calculateBtn}>
+          <Pressable style={styles.calculateBtn} onPress={calculateBMI}>
             <Text style={styles.btnText}>Calculate</Text>
           </Pressable>
         </View>
@@ -102,7 +105,11 @@ const Form = ({
         }}
       />
 
-      {active === "bmi" ? <BmiResult /> : <CalorieResult weightLoss={weightLoss} />}
+      {active === "bmi" ? (
+        <BmiResult bmi={bmi} category={category} categoryColor={categoryColor} />
+      ) : (
+        <CalorieResult weightLoss={weightLoss} />
+      )}
     </View>
   );
 };

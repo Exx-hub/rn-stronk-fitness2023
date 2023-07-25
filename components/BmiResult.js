@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet } from "react-native";
 
-const BmiResult = () => {
+const BmiResult = ({ bmi, category, categoryColor }) => {
   return (
     <View style={[styles.resultContainer, styles.shadowEffect]}>
       <Text style={styles.resultLabel}>BMI:</Text>
-      <Text style={styles.result}>26.22</Text>
-      <Text style={styles.category}>Overweight</Text>
+      <Text style={styles.result}>{bmi || "--"}</Text>
+      <Text style={[styles.category, { color: categoryColor }]}>{category}</Text>
     </View>
   );
 };
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#212529",
     color: "white",
     flex: 1,
-    padding: 5,
+    padding: 10,
     textAlign: "center",
     fontWeight: "700",
   },
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#6C757D",
     color: "white",
     flex: 1,
-    padding: 5,
+    padding: 10,
     textAlign: "center",
     fontWeight: "700",
   },
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     color: "#FFC126",
     flex: 1,
-    padding: 5,
+    padding: 10,
     textAlign: "center",
     fontWeight: "700",
   },
