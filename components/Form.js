@@ -1,6 +1,5 @@
 import { View, Text, TextInput, Pressable, StyleSheet } from "react-native";
 import RadioButton from "./RadioButton";
-import { useState } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
 import BmiResult from "./BmiResult";
 import CalorieResult from "./CalorieResult";
@@ -21,17 +20,16 @@ const Form = ({
   bmi,
   category,
   categoryColor,
+  pickerOpen,
+  pickerValue,
+  pickerItems,
+  setPickerOpen,
+  setPickerValue,
+  setPickerItems,
+  calculateCalories,
+  bmr,
+  tdee,
 }) => {
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(1.2);
-  const [items, setItems] = useState([
-    { label: "Sedentary: little or no exercise", value: 1.2 },
-    { label: "Light: exercise 1-3 times/week", value: 1.375 },
-    { label: "Moderate: exercise 4-5 times/week", value: 1.55 },
-    { label: "Active: daily or 3-4x intense exercise/week", value: 1.725 },
-    { label: "Extra Active: athlete or extremely physical job", value: 1.9 },
-  ]);
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Calculate {active === "bmi" ? "BMI" : "Calories"}</Text>
@@ -69,12 +67,12 @@ const Form = ({
               onSelect={handleWeightLoss}
             />
             <DropDownPicker
-              open={open}
-              value={value}
-              items={items}
-              setOpen={setOpen}
-              setValue={setValue}
-              setItems={setItems}
+              open={pickerOpen}
+              value={pickerValue}
+              items={pickerItems}
+              setOpen={setPickerOpen}
+              setValue={setPickerValue}
+              setItems={setPickerItems}
               theme="DARK"
               textStyle={{ fontSize: 12, color: "lightgray" }}
             />
@@ -90,7 +88,10 @@ const Form = ({
             onSelect={handleSelect}
           />
 
-          <Pressable style={styles.calculateBtn} onPress={calculateBMI}>
+          <Pressable
+            style={styles.calculateBtn}
+            onPress={active === "bmi" ? calculateBMI : calculateCalories}
+          >
             <Text style={styles.btnText}>Calculate</Text>
           </Pressable>
         </View>
@@ -108,7 +109,7 @@ const Form = ({
       {active === "bmi" ? (
         <BmiResult bmi={bmi} category={category} categoryColor={categoryColor} />
       ) : (
-        <CalorieResult weightLoss={weightLoss} />
+        <CalorieResult weightLoss={weightLoss} bmr={bmr} tdee={tdee} />
       )}
     </View>
   );
@@ -119,7 +120,7 @@ export default Form;
 const styles = StyleSheet.create({
   container: {
     width: "80%",
-    marginTop: 20,
+    marginTop: 15,
   },
   title: {
     textAlign: "center",

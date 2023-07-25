@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "gray",
     borderRadius: 10,
-    marginTop: 20,
+    marginTop: 15,
   },
   toggleBtn: {
     alignItems: "center",

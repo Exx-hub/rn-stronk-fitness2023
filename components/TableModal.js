@@ -5,8 +5,8 @@ const TableModal = ({ showModal, setShowModal }) => {
   return (
     <View style={{ marginTop: "auto", marginBottom: 15, alignItems: "center" }}>
       <Modal animationType="fade" transparent={true} visible={showModal}>
-        <View style={[styles.modalContainer, styles.shadowEffect]}>
-          <View style={styles.modalContent}>
+        <View style={styles.modalContainer}>
+          <View style={[styles.modalContent, styles.shadowEffect]}>
             <Pressable onPress={() => setShowModal(!showModal)} style={styles.closeModal}>
               <FontAwesome name="close" size={24} color="black" />
             </Pressable>

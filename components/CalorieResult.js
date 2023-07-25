@@ -1,22 +1,25 @@
 import { View, Text, StyleSheet } from "react-native";
-import React from "react";
 
-const CalorieResult = ({ weightLoss }) => {
+const CalorieResult = ({ weightLoss, bmr, tdee }) => {
   return (
     <View style={[styles.resultContainer, styles.shadowEffect]}>
       <View style={styles.resultView}>
         <Text style={styles.resultLabel}>BMR:</Text>
-        <Text style={styles.result}>1615</Text>
+        <Text style={styles.result}>{bmr || "--"}</Text>
       </View>
       <View style={styles.resultView}>
         <Text style={styles.resultLabel}>
           Weight {weightLoss === "weight loss" ? "Loss" : "Gain"}:
         </Text>
-        <Text style={styles.result}>2503</Text>
+        {weightLoss === "weight loss" ? (
+          <Text style={styles.result}>{tdee ? (tdee - 500).toFixed(0) : "--"}</Text>
+        ) : (
+          <Text style={styles.result}>{tdee ? (tdee + 500).toFixed(0) : "--"}</Text>
+        )}
       </View>
       <View style={styles.resultView}>
         <Text style={styles.resultLabel}>Maintain Weight:</Text>
-        <Text style={styles.result}>2503</Text>
+        <Text style={styles.result}>{tdee ? tdee.toFixed(0) : "--"}</Text>
       </View>
     </View>
   );
