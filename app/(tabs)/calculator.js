@@ -14,9 +14,12 @@ const Calculator = () => {
   const [age, setAge] = useState("");
   const [selectedOption, setSelectedOption] = useState("male");
 
-  const handleSelect = (option) => setSelectedOption(option);
+  const [weightLoss, setWeightLoss] = useState("weight loss");
 
-  // console.log({ weight, height, age, selectedOption });
+  const handleSelect = (option) => setSelectedOption(option);
+  const handleWeightLoss = (option) => setWeightLoss(option);
+
+  console.log({ weight, height, age, selectedOption, weightLoss });
 
   return (
     <View style={styles.container}>
@@ -26,6 +29,8 @@ const Calculator = () => {
         active={active}
         selectedOption={selectedOption}
         handleSelect={handleSelect}
+        weightLoss={weightLoss}
+        handleWeightLoss={handleWeightLoss}
         weight={weight}
         setWeight={setWeight}
         height={height}
@@ -34,7 +39,7 @@ const Calculator = () => {
         setAge={setAge}
       />
 
-      <TableModal showModal={showModal} setShowModal={setShowModal} />
+      {active === "bmi" ? <TableModal showModal={showModal} setShowModal={setShowModal} /> : null}
     </View>
   );
 };

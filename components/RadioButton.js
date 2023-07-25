@@ -25,7 +25,7 @@ export default RadioButton;
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    marginTop: 10,
+    marginVertical: 10,
   },
   optionContainer: {
     flexDirection: "row",

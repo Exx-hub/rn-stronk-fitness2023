@@ -15,6 +15,8 @@ const Form = ({
   setAge,
   selectedOption,
   handleSelect,
+  weightLoss,
+  handleWeightLoss,
 }) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(1.2);
@@ -57,7 +59,12 @@ const Form = ({
         />
 
         {active !== "bmi" ? (
-          <View style={{ zIndex: 100, marginBottom: 15 }}>
+          <View style={{ zIndex: 100, marginBottom: 5 }}>
+            <RadioButton
+              options={["weight loss", "weight gain"]}
+              selectedOption={weightLoss}
+              onSelect={handleWeightLoss}
+            />
             <DropDownPicker
               open={open}
               value={value}
@@ -95,7 +102,7 @@ const Form = ({
         }}
       />
 
-      {active === "bmi" ? <BmiResult /> : <CalorieResult />}
+      {active === "bmi" ? <BmiResult /> : <CalorieResult weightLoss={weightLoss} />}
     </View>
   );
 };
