@@ -1,7 +1,12 @@
 import { View, Text, TextInput, Pressable, StyleSheet } from "react-native";
 import RadioButton from "./RadioButton";
+import { useState } from "react";
+import DropDownPicker from "react-native-dropdown-picker";
+import BmiResult from "./BmiResult";
+import CalorieResult from "./CalorieResult";
 
-const Bmi = ({
+const Form = ({
+  active,
   weight,
   setWeight,
   height,
@@ -11,9 +16,20 @@ const Bmi = ({
   selectedOption,
   handleSelect,
 }) => {
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(1.2);
+  const [items, setItems] = useState([
+    { label: "Sedentary: little or no exercise", value: 1.2 },
+    { label: "Light: exercise 1-3 times/week", value: 1.375 },
+    { label: "Moderate: exercise 4-5 times/week", value: 1.55 },
+    { label: "Active: daily or 3-4x intense exercise/week", value: 1.725 },
+    { label: "Extra Active: athlete or extremely physical job", value: 1.9 },
+  ]);
+
+  console.log({ value });
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Calculate BMI</Text>
+      <Text style={styles.title}>Calculate {active === "bmi" ? "BMI" : "Calories"}</Text>
       <View>
         <TextInput
           style={styles.textInput}
@@ -40,6 +56,21 @@ const Bmi = ({
           returnKeyType="done"
         />
 
+        {active !== "bmi" ? (
+          <View style={{ zIndex: 100, marginBottom: 15 }}>
+            <DropDownPicker
+              open={open}
+              value={value}
+              items={items}
+              setOpen={setOpen}
+              setValue={setValue}
+              setItems={setItems}
+              theme="DARK"
+              textStyle={{ fontSize: 12, color: "lightgray" }}
+            />
+          </View>
+        ) : null}
+
         <View
           style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}
         >
@@ -60,24 +91,21 @@ const Bmi = ({
           borderBottomColor: "black",
           borderBottomWidth: StyleSheet.hairlineWidth,
           marginVertical: 15,
+          zIndex: -1,
         }}
       />
 
-      <View style={styles.resultContainer}>
-        <Text style={styles.resultLabel}>BMI:</Text>
-        <Text style={styles.result}>26.22</Text>
-        <Text style={styles.category}>Overweight</Text>
-      </View>
+      {active === "bmi" ? <BmiResult /> : <CalorieResult />}
     </View>
   );
 };
 
-export default Bmi;
+export default Form;
 
 const styles = StyleSheet.create({
   container: {
     width: "80%",
-    marginTop: 30,
+    marginTop: 20,
   },
   title: {
     textAlign: "center",
@@ -103,33 +131,5 @@ const styles = StyleSheet.create({
   },
   btnText: {
     color: "white",
-  },
-  resultContainer: {
-    flexDirection: "row",
-    marginTop: 10,
-  },
-  resultLabel: {
-    backgroundColor: "black",
-    color: "white",
-    flex: 1,
-    padding: 5,
-    textAlign: "center",
-    fontWeight: "700",
-  },
-  result: {
-    backgroundColor: "gray",
-    color: "white",
-    flex: 1,
-    padding: 5,
-    textAlign: "center",
-    fontWeight: "700",
-  },
-  category: {
-    backgroundColor: "white",
-    color: "#FFC126",
-    flex: 1,
-    padding: 5,
-    textAlign: "center",
-    fontWeight: "700",
   },
 });
