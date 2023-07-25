@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { View, StyleSheet } from "react-native";
-import ToggleSwitch from "../../components/ToggleSwitch";
 
+import ToggleSwitch from "../../components/ToggleSwitch";
 import Form from "../../components/Form";
+import TableModal from "../../components/TableModal";
 
 const Calculator = () => {
   const [active, setActive] = useState("bmi");
+  const [showModal, setShowModal] = useState(false);
 
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
@@ -31,6 +33,8 @@ const Calculator = () => {
         age={age}
         setAge={setAge}
       />
+
+      <TableModal showModal={showModal} setShowModal={setShowModal} />
     </View>
   );
 };
@@ -41,6 +45,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    marginTop: 10,
   },
 });

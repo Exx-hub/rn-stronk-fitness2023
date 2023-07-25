@@ -15,7 +15,6 @@ export default BmiResult;
 const styles = StyleSheet.create({
   resultContainer: {
     flexDirection: "row",
-    marginTop: 20,
     backgroundColor: "white",
     zIndex: -1,
   },

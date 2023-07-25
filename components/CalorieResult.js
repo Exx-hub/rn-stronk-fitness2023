@@ -21,7 +21,6 @@ export default CalorieResult;
 
 const styles = StyleSheet.create({
   resultContainer: {
-    marginTop: 20,
     backgroundColor: "white",
     zIndex: -1,
   },
