@@ -3,6 +3,7 @@ import RadioButton from "./RadioButton";
 import DropDownPicker from "react-native-dropdown-picker";
 import BmiResult from "./BmiResult";
 import CalorieResult from "./CalorieResult";
+import BottomHr from "./BottomHr";
 
 const Form = ({
   active,
@@ -97,14 +98,7 @@ const Form = ({
         </View>
       </View>
 
-      <View
-        style={{
-          borderBottomColor: "black",
-          borderBottomWidth: StyleSheet.hairlineWidth,
-          marginVertical: 15,
-          zIndex: -1,
-        }}
-      />
+      <BottomHr borderBottomColor="black" marginVertical={15} zIndex={-1} />
 
       {active === "bmi" ? (
         <BmiResult bmi={bmi} category={category} categoryColor={categoryColor} />

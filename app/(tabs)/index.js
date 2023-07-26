@@ -28,7 +28,7 @@ const Home = () => {
         source={require("../../assets/bg/deadlift2.jpg")}
         resizeMode="cover"
       >
-        <LinearGradient colors={["rgba(0,0,0,0.8)", "transparent"]} style={styles.background} />
+        <LinearGradient colors={["rgba(0,0,0,0.8)", "transparent"]} style={styles.gradientBg} />
 
         <View style={styles.logoContainer}>
           <Image style={styles.whiteLogo} source={require("../../assets/logos/whitelogo.png")} />
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   homeContainer: {
     flex: 1,
   },
-  background: {
+  gradientBg: {
     position: "absolute",
     left: 0,
     right: 0,

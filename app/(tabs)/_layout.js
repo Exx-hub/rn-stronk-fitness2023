@@ -14,8 +14,10 @@ const TabLayout = () => {
   return (
     <Tabs
       screenOptions={{
-        headerShown: false,
+        headerTitle: "",
         tabBarShowLabel: false,
+        headerLeft: LogoTitle,
+        tabBarIcon: ({ color }) => <FontAwesome5 name="weight" size={18} color={color} />,
         tabBarStyle: { backgroundColor: "#0d0d0d", borderTopWidth: 0 },
         tabBarActiveTintColor: "#F0EFE7",
         tabBarInactiveTintColor: "#333",
@@ -24,9 +26,6 @@ const TabLayout = () => {
       <Tabs.Screen
         name="index"
         options={{
-          headerShown: true,
-          headerTitle: "",
-          headerLeft: LogoTitle,
           tabBarIcon: ({ color }) => <Ionicons name="home-outline" size={22} color={color} />,
         }}
       />
@@ -34,9 +33,6 @@ const TabLayout = () => {
       <Tabs.Screen
         name="calculator"
         options={{
-          headerShown: true,
-          headerTitle: "",
-          headerLeft: LogoTitle,
           tabBarIcon: ({ color }) => <FontAwesome5 name="weight" size={18} color={color} />,
         }}
       />

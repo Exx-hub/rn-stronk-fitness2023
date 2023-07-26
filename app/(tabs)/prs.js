@@ -1,10 +1,14 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ImageBackground } from "react-native";
 import React from "react";
 
 const Prs = () => {
   return (
     <View style={styles.container}>
-      <Text>Prs</Text>
+      <ImageBackground
+        source={require("../../assets/bg/barbell3.jpg")}
+        resizeMode="cover"
+        style={styles.imageBg}
+      ></ImageBackground>
     </View>
   );
 };
@@ -14,7 +18,8 @@ export default Prs;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+  },
+  imageBg: {
+    flex: 1,
   },
 });
