@@ -3,6 +3,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import WodItem from "../../components/WodItem";
 import CreateWod from "../../components/CreateWod";
 import BottomHr from "../../components/BottomHr";
+import { ScrollView } from "react-native";
 
 const WodList = () => {
   return (
@@ -19,7 +20,13 @@ const WodList = () => {
 
           <BottomHr borderBottomColor="white" marginVertical={8} />
 
-          <WodItem />
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <WodItem title="Chest Ripper" />
+            <WodItem title="Not A Leg Day" />
+            <WodItem title="Not A Leg Day" />
+            <WodItem title="Not A Leg Day" />
+            <WodItem title="Not A Leg Day" />
+          </ScrollView>
         </View>
       </ImageBackground>
     </View>
