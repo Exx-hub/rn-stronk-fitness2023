@@ -6,6 +6,35 @@ import BottomHr from "../../components/BottomHr";
 import { ScrollView } from "react-native";
 
 const WodList = () => {
+  const wods = [
+    {
+      id: 0,
+      title: "The Big 3",
+      exercises: ["Squats", "DeadLifts", "Bench"],
+    },
+    {
+      id: 1,
+      title: "Chest Ripper",
+      exercises: ["Bench Press", "Incline DB", "Chest Dips", "Incline Smith", "Cable Cross"],
+    },
+    {
+      id: 2,
+      title: "The Military Man",
+      exercises: [
+        "Military Press",
+        "DB Shoulder Press",
+        "Lateral Raises",
+        "Arnold Press",
+        "Rear Delt Flye",
+      ],
+    },
+    {
+      id: 3,
+      title: "Not A Leg Day",
+      exercises: ["Back Squats", "Leg Extensions", "Romanian DeadLifts", "Calf Presses"],
+    },
+  ];
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -21,11 +50,9 @@ const WodList = () => {
           <BottomHr borderBottomColor="white" marginVertical={8} />
 
           <ScrollView showsVerticalScrollIndicator={false}>
-            <WodItem title="Chest Ripper" />
-            <WodItem title="Not A Leg Day" />
-            <WodItem title="Not A Leg Day" />
-            <WodItem title="Not A Leg Day" />
-            <WodItem title="Not A Leg Day" />
+            {wods.map((wod) => (
+              <WodItem {...wod} key={wod.id} />
+            ))}
           </ScrollView>
         </View>
       </ImageBackground>
@@ -53,7 +80,7 @@ const styles = StyleSheet.create({
   listItems: {
     flex: 1,
     width: "80%",
-    marginTop: 50,
+    marginTop: 40,
   },
   createItem: {
     borderWidth: 1,
