@@ -1,20 +1,28 @@
-import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
-import { Feather, Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
+import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
 
-const CreateWod = () => {
+import { Feather, Ionicons } from "@expo/vector-icons";
+
+const CreatePr = () => {
   const [isAdding, setIsAdding] = useState(false);
-  const [input, setInput] = useState("");
+  const [prInput, setPrInput] = useState("");
+  const [weightInput, setWeightInput] = useState("");
   return (
-    <View style={styles.createItemContainer}>
-      <View style={styles.createItem}>
+    <View style={styles.prItemContainer}>
+      <View style={styles.prItem}>
         {isAdding ? (
           <>
             <TextInput
-              style={styles.createInput}
-              placeholder="Add New WOD"
-              value={input}
-              onChangeText={(text) => setInput(text)}
+              style={styles.prInput}
+              placeholder="PR Name"
+              value={prInput}
+              onChangeText={(text) => setPrInput(text)}
+            />
+            <TextInput
+              style={styles.prInput}
+              placeholder="Weight"
+              value={weightInput}
+              onChangeText={(text) => setWeightInput(text)}
             />
             <Ionicons
               name="checkmark-circle"
@@ -35,7 +43,7 @@ const CreateWod = () => {
             style={{ flexDirection: "row", alignItems: "center" }}
           >
             <Feather name="plus-circle" size={16} color="white" />
-            <Text style={styles.createLabel}>Create WOD</Text>
+            <Text style={styles.prLabel}>Enter a PR</Text>
           </Pressable>
         )}
       </View>
@@ -43,14 +51,14 @@ const CreateWod = () => {
   );
 };
 
-export default CreateWod;
+export default CreatePr;
 
 const styles = StyleSheet.create({
-  createItemContainer: {
+  prItemContainer: {
     backgroundColor: "transparent",
     borderRadius: 8,
   },
-  createItem: {
+  prItem: {
     borderWidth: 1,
     borderColor: "lightgray",
     borderRadius: 8,
@@ -59,13 +67,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     minHeight: 42,
   },
-  createLabel: {
+  prLabel: {
     fontWeight: "bold",
     color: "white",
-    marginLeft: 3,
-    fontSize: 15,
+    marginLeft: 5,
+    fontSize: 16,
   },
-  createInput: {
+  prInput: {
     backgroundColor: "white",
     flex: 1,
     marginRight: 5,

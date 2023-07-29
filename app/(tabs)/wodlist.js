@@ -42,7 +42,7 @@ const WodList = () => {
         resizeMode="center"
         style={styles.imageBg}
       >
-        <LinearGradient colors={["rgba(0,0,0,1)", " "]} style={styles.gradientBg} />
+        <LinearGradient colors={["rgba(0,0,0,.8)", "transparent"]} style={styles.gradientBg} />
 
         <View style={styles.listItems}>
           <CreateWod />
